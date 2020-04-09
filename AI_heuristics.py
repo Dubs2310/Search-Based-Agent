@@ -1,10 +1,24 @@
-def hammingDistance(grid):
-    return len([i for i in range(len(grid)) if grid[i] != 0 and grid[i] != i+1])
-
-def manhattanDistance(goal):
+def hammingDistance(goal):
     def calculateDistance(state):
         if isinstance(state,list):
             distance = 0
+            for i in range(len(state)):
+                if not isinstance(state[i],list):
+                    if state[i]!=goal[i]:
+                        distance+=1
+                else:
+                    for j in range(len(state[i])):
+                        if state[i][j]!=goal[i][j]:
+                            distance+=1
+            return distance
+        else:
+            return abs(state[0]-goal[0])+abs(state[1]-goal[1])
+    return calculateDistance
+
+def manhattanDistance(goal):
+    def calculateDistance(state):
+        distance = 0
+        if isinstance(state,list):
             for i in range(len(state)):
                 if not isinstance(state[i],list):
                     if not state[i] == goal[i]:
@@ -23,6 +37,10 @@ def manhattanDistance(goal):
                                     else:
                                         distance+=1
         else:
-            return abs(state[0]-goal[0])+abs(state[1]-goal[1])
-        return distance;
+            if isinstance(goal, list):
+                for i in range(len(goal)):
+                    distance+=abs(state[-1]-goal[i][-1])+abs(state[-2]-goal[i][-2])
+            else:
+                distance = abs(state[-1]-goal[-1])+abs(state[-2]-goal[-2])
+        return distance
     return calculateDistance

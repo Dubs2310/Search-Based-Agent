@@ -12,7 +12,7 @@ from HanoiTowerProblem import HanoiTowerProblem
 def solve(problem: SearchProblem, *list_of_func):
     for f in list_of_func:
         if f.__name__ == "greedySearch" or f.__name__ == "astarSearch":
-            print(f(problem, lambda state: AI_heuristics.hammingDistance(state[0])))
+            print(f(problem, lambda state: AI_heuristics.hammingDistance(problem.goal)(state[0])))
             print(f(problem, lambda state: AI_heuristics.manhattanDistance(problem.goal)(state[0])))
         else:
             print(f(problem))
