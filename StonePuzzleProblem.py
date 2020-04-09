@@ -10,12 +10,12 @@ class StonePuzzleProblem(SearchProblem):
                 break
 
     def getStartState(self):
-        return (self.grid, self.pos0, 0, [''.join(self.grid)])
+        return (self.grid, self.pos0, 0, [''.join(self.grid)]) # returns the initial state of the problem
 
     def getGoalState(self, state):
-        return state[0] == ['X', 'X', '_', 'O', 'O']
+        return state[0] == ['X', 'X', '_', 'O', 'O'] # returns whether the given state is the goal state
 
-    def getSuccessors(self, state):
+    def getSuccessors(self, state): # returns all the possivle outcomes of the current state
         moves = []
         grid, pos0, pathCost, path = state
 
@@ -38,7 +38,7 @@ class StonePuzzleProblem(SearchProblem):
 
         return moves
 
-    def manhattanCost(self, grid):
+    def manhattanCost(self, grid): # returns the number of possibles moves required to reach the goal state
         distance = 0
         for i in range(len(grid[0])):
             for j in range(len(self.goal)):
@@ -47,7 +47,7 @@ class StonePuzzleProblem(SearchProblem):
                     break
         return distance
 
-    def hammingCost(self, grid):
+    def hammingCost(self, grid): # returns the number of elements not in order
         distance = 0
         for i in range(len(grid[0])):
             if grid[0][i]!=self.goal[i]:
