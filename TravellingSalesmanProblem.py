@@ -8,9 +8,9 @@ class TravellingSalesmanProblem(SearchProblem):
 
     #initial distance is 0
     def getStartState(self):
-        return (self.grid, 0, []) # returns the initial state of the problem 
+        return (self.grid, 0, [])# returns the initial state of the problem
 
-    def getGoalState(self, state): # returns whether or not the given state is the goal state
+    def getGoalState(self, state):# returns whether or not the given state is the goal state
         if len(state[2]) == len(self.grid) + 1:
             for i in self.grid:
                 if i not in state[2]:
@@ -31,7 +31,7 @@ class TravellingSalesmanProblem(SearchProblem):
             pathCopy.append(city)
             gridCopy = list(grid)
             if not gridCopy:
-                gridCopy = []
+                gridCopy = [()]
             else:
                 gridCopy.remove(city)
             moves.append((gridCopy, newDist, pathCopy))
@@ -44,10 +44,10 @@ class TravellingSalesmanProblem(SearchProblem):
 
         return moves
 
-    def hammingCost(self,state): # returns the total number of unexplored cities
+    def hammingCost(self,state):# returns the total number of unexplored cities
         return len(state[0])+1
 
-    def manhattanCost(self,state): # returns the total distance to the goal
+    def manhattanCost(self,state):# returns the total distance to the goal
         distance = 0
         for i in range(len(self.grid)):
             if self.grid[i] in state[0]:
