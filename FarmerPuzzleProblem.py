@@ -29,3 +29,17 @@ class FarmerPuzzleProblem(SearchProblem):
         getMove(0, 3) #Farmer crosses WITH CABBAGE
 
         return moves
+
+    def hammingCost(self, grid):
+        distance = 0;
+        for i in range(len(grid[0])):
+            if grid[0][i]!=0:
+                distance+=1
+        return distance
+
+    def manhattanCost(self, grid):
+        distance = 0;
+        for i in range(len(grid[0])):
+            if grid[0][i]!=0:
+                distance+=1
+        return distance

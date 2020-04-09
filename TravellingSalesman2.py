@@ -29,3 +29,9 @@ class TravellingSalesman2(SearchProblem):
                 if i not in path:
                     getMove(self.grid[i])
         return moves
+
+    def hammingCost(self, state):
+        return len(self.grid) + 1 - len(state[1])
+
+    def manhattanCost(self, state):
+        return state[0]

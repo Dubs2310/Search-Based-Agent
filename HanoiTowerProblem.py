@@ -3,7 +3,6 @@ from AI_problem import SearchProblem
 class HanoiTowerProblem(SearchProblem):
     def __init__(self, num_disks, num_towers, t_from, t_to):
         self.grid = [[] for i in range(num_towers)]
-        self.towers = num_towers
         self.disks = num_disks
         self.to = t_to
         for i in range(num_disks):
@@ -26,8 +25,8 @@ class HanoiTowerProblem(SearchProblem):
             pathCopy.append(gridCopy)
             moves.append((gridCopy, pathCost + 1, pathCopy))
 
-        for i in range(self.towers - 1):
-            for j in range(1, self.towers):
+        for i in range(len(self.grid) - 1):
+            for j in range(1, len(self.grid)):
                 if i != j:
                     if not (not grid[i] and not grid[j]):
                         if not grid[j]:
@@ -39,3 +38,10 @@ class HanoiTowerProblem(SearchProblem):
                         else:
                             getMove(j, i)
         return moves
+
+    def hammingCost(self, state):
+        return self.disks - len(state[0][self.to])
+
+    def manhattanCost(self, state):
+        #len(grid[0]) * abs(self.to - 0) + len(grid[1]) * abs(self.to - 0) + len()
+        return sum(len(state[0][i]) * abs(self.to - i) for i in range(len(state[0]))) + 1

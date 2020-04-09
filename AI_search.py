@@ -37,6 +37,10 @@ class PriorityQueue:
         self.heap = []
 
     def push(self, item):
+        for element in self.heap:
+            print("++",element,"++")
+        print("====",item,"====")
+        input()
         heapq.heappush(self.heap, (self.priorityFunction(item), item))
 
     def pop(self):
@@ -92,10 +96,10 @@ def depthFirstSearch(problem):
 def breadthFirstSearch(problem):
     return graphSearch(problem, Queue())
 
-def depthLimitedDFS(problem, state, depth):
-    expanded = 0
+def depthLimitedDFS(problem, state, depth, expanded = 0, explored = set()):
     if problem.getGoalState(state):
         print('Nodes Expanded:', expanded)
+        print('Nodes Generated:',len(explored))
         print('Path Cost:', state[-2])
         return state[-1]
     if depth <= 0:
@@ -103,7 +107,11 @@ def depthLimitedDFS(problem, state, depth):
     successors = problem.getSuccessors(state)
     expanded += len(successors)
     for move in successors:
-        solution = depthLimitedDFS(problem, move, depth-1)
+        gridCopy = str(move[0])
+        if gridCopy not in explored:
+            explored.add(gridCopy)
+
+        solution = depthLimitedDFS(problem, move, depth-1, expanded, explored)
         if solution is not None:
             return solution
     return None

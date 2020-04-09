@@ -30,7 +30,10 @@ class TravellingSalesmanProblem(SearchProblem):
                 newDist = dist + ((city[1] - pathCopy[-1][1])**2 + (city[2] - pathCopy[-1][2])**2)**0.5
             pathCopy.append(city)
             gridCopy = list(grid)
-            gridCopy.remove(city) if not not gridCopy else gridCopy.append(-1)
+            if not gridCopy:
+                gridCopy = []
+            else:
+                gridCopy.remove(city)
             moves.append((gridCopy, newDist, pathCopy))
 
         if not grid:
@@ -40,3 +43,12 @@ class TravellingSalesmanProblem(SearchProblem):
                 getMove(i)
 
         return moves
+
+    def hammingCost(self,state):
+        return len(state[0])+1
+
+    def manhattanCost(self,state):
+        distance = 0
+        for i in range(len(self.grid)):
+            if self.grid[i] in state[0]:
+                distance+=abs(state[-1][-1][-1]-grid[i][-1])+abs(state[-1][-1][-2]-grid[i][-2])

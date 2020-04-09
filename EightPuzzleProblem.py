@@ -9,7 +9,6 @@ class EightPuzzleProblem(SearchProblem):
             if self.grid[i] == 0:
                 self.pos0 = i
                 break
-        self.goal = [i for i in range(len(self.grid) + 1)]
 
     # We'll define state to be tuple([grid], pos0, [path])
     def getStartState(self):
@@ -43,3 +42,11 @@ class EightPuzzleProblem(SearchProblem):
         if (pos0 % 3) < 2: # Slide empty block RIGHT
             generateMove(1)
         return moves
+
+    def manhattanCost(self, grid):
+        def distance(i):
+            return 0 if grid[0][i] == 0 else abs(((grid[0][i]-1) / 3) - (i / 3)) + abs(((grid[0][i]-1) % 3) - (i % 3))
+        return sum(distance(i) for i in range(len(grid[0])))
+
+    def hammingCost(self, grid):
+        return len([i for i in range(len(grid[0])) if grid[0][i] != 0 and grid[0][i] != i+1])

@@ -9,7 +9,6 @@ class PacmanProblem(SearchProblem):
         self.columns = len(grid[0])
         self.pacman = pacman
         self.food = food
-        self.goal = self.food
 
     # Since this problem requires us to output the path taken
     # to reach the food pellet, we'll store the path in the state
@@ -44,3 +43,9 @@ class PacmanProblem(SearchProblem):
         if state[0][0] < self.rows - 1:  # Go DOWN
             getMove(state[0][0] + 1, state[0][1])
         return moves
+
+    def manhattanCost(self, grid):
+        return abs(grid[0][0]-self.food[0])+abs(grid[0][1]-self.food[1])
+
+    def hammingCost(self, grid):
+        return 0 if grid[0][0]==self.food[0] and grid[0][1]==self.food[1] else 2 if grid[0][0]!=self.food[0] and grid[0][1]!=self.food[1] else 1
