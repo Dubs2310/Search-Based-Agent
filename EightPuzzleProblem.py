@@ -22,7 +22,7 @@ class EightPuzzleProblem(SearchProblem):
                 return False
         return pos0 == 8
 
-    def getSuccessors(self, state):
+    def getSuccessors(self, state): # gets all the possible outcomes from the current state
         moves = []
         grid, pos0, pathCost, path = state
 
