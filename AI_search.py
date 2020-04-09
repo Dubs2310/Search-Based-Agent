@@ -37,10 +37,6 @@ class PriorityQueue:
         self.heap = []
 
     def push(self, item):
-        for element in self.heap:
-            print("++",element,"++")
-        print("====",item,"====")
-        input()
         heapq.heappush(self.heap, (self.priorityFunction(item), item))
 
     def pop(self):

@@ -47,7 +47,7 @@ solve(p4, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
       AI_search.greedySearch, AI_search.astarSearch)
 
 '''
-p5 = TravellingSalesmanProblem([('A', 20, 1), ('C', 1, 52), ('B', 40, 20), ('D', 42, 5),('E', 64, 43)])
+p5 = TravellingSalesmanProblem([('A', 10, 1), ('C', 9, 5), ('B', 4, 2), ('D', 2, 5),('E', 4, 3)])
 solve(p5, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
       AI_search.uniformCostSearch, AI_search.iterativeDeepeningDFS, AI_search.greedySearch, AI_search.astarSearch)
 '''

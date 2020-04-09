@@ -51,4 +51,6 @@ class TravellingSalesmanProblem(SearchProblem):
         distance = 0
         for i in range(len(self.grid)):
             if self.grid[i] in state[0]:
-                distance+=abs(state[-1][-1][-1]-grid[i][-1])+abs(state[-1][-1][-2]-grid[i][-2])
+                if len(state[-1])>0:
+                    distance+=abs(state[-1][-1][-1]-self.grid[i][-1])+abs(state[-1][-1][-2]-self.grid[i][-2])
+        return distance
