@@ -21,7 +21,7 @@ def solve(problem, *list_of_func, heuristics = None):
         else:
             print('Solution Path:', f(problem), '\n')
 
-'''p1 = EightPuzzleProblem([3, 0, 7, 2, 8, 1, 6, 4, 5])
+p1 = EightPuzzleProblem([3, 0, 7, 2, 8, 1, 6, 4, 5])
 solve(p1, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
       AI_search.uniformCostSearch, AI_search.greedySearch, AI_search.astarSearch)
 
@@ -46,11 +46,11 @@ solve(p4, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
       AI_search.uniformCostSearch, AI_search.iterativeDeepeningDFS,
       AI_search.greedySearch, AI_search.astarSearch)
 
-'''
+
 p5 = TravellingSalesmanProblem([('A', 10, 1), ('C', 9, 5), ('B', 4, 2), ('D', 2, 5),('E', 4, 3)])
 solve(p5, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
       AI_search.uniformCostSearch, AI_search.iterativeDeepeningDFS, AI_search.greedySearch, AI_search.astarSearch)
-'''
+
 
 
 p6 = TravellingSalesman2([[0, 10, 15, 20], [10, 0, 35, 25], [15, 35, 0, 30], [20, 25, 30, 0]])
@@ -61,4 +61,4 @@ solve(p6, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
 p7 = HanoiTowerProblem(3, 3, 0, 2)
 solve(p7, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
       AI_search.uniformCostSearch, AI_search.iterativeDeepeningDFS,
-      AI_search.greedySearch, AI_search.astarSearch)'''
+      AI_search.greedySearch, AI_search.astarSearch)
