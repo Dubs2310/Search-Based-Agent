@@ -10,6 +10,7 @@ class PacmanProblem(SearchProblem):
         self.pacman = pacman
         #self.grid[pacman[0]] = self.grid[pacman[0]][:pacman[1]] + 'P' + self.grid[pacman[0]][pacman[1] + 1:]
         self.food = food
+        self.goal = self.food
         #self.grid[food[0]] = self.grid[food[0]][:food[1]] + 'F' + self.grid[food[0]][food[1] + 1:]
 
     # Since this problem requires us to output the path taken

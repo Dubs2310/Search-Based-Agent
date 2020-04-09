@@ -9,6 +9,7 @@ class EightPuzzleProblem(SearchProblem):
             if self.grid[i] == 0:
                 self.pos0 = i
                 break
+        self.goal = [i for i in range(len(self.grid)+1)]
 
     # We'll define state to be tuple([grid], pos0, [path])
     def getStartState(self):

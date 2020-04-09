@@ -114,5 +114,5 @@ def greedySearch(problem, heuristic):
 
 def astarSearch(problem, heuristic):
     # A* uses path cost from start state + heuristic estimate to a goal
-    totalCost = lambda state: len(state[-1]) + heuristic(state)
+    totalCost = lambda state: len(state[-1])+heuristic(state)
     return graphSearch(problem, PriorityQueue(totalCost))
