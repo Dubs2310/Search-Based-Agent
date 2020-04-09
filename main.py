@@ -34,10 +34,10 @@ solve(p2, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
       AI_search.uniformCostSearch, AI_search.greedySearch, AI_search.astarSearch,
       AI_search.iterativeDeepeningDFS)
 
-'''p3 = StonePuzzleProblem([1, 1, 0, 2, 2])
+p3 = StonePuzzleProblem([1, 1, 0, 2, 2])
 solve(p3, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,
       AI_search.uniformCostSearch, AI_search.iterativeDeepeningDFS,
-      AI_search.greedySearch, AI_search.astarSearch)'''
+      AI_search.greedySearch, AI_search.astarSearch)
 
 '''p4 = FarmerPuzzleProblem(1, 1, 1, 1)
 solve(p4, AI_search.depthFirstSearch, AI_search.breadthFirstSearch,

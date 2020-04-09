@@ -7,6 +7,7 @@ class StonePuzzleProblem(SearchProblem):
             if grid[i] == 0:
                 self.pos0 = i
                 break
+        self.goal = [2,2,0,1,1]
 
     def getStartState(self):
         return (self.grid, self.pos0, [self.grid])

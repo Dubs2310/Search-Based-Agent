@@ -22,20 +22,16 @@ def manhattanDistance(goal):
             for i in range(len(state)):
                 if not isinstance(state[i],list):
                     if not state[i] == goal[i]:
-                        for j in range(i,len(goal)):
+                        for j in range(len(goal)):
                             if state[i]==goal[j]:
-                                break
-                            else:
-                                distance+=1
+                                distance+=abs(i-j)
                 else:
                     for j in range(len(state[i])):
                         if not state[i][j]==goal[i][j]:
-                            for k in range(i, len(goal)):
-                                for l in range(j, len(goal[k])):
-                                    if state[i][j]==goal[i][j]:
-                                        break
-                                    else:
-                                        distance+=1
+                            for k in range(len(goal)):
+                                for l in range(len(goal[k])):
+                                    if state[i][j]==goal[k][l]:
+                                        distance+=abs(i-k)+abs(j-l)
         else:
             if isinstance(goal, list):
                 for i in range(len(goal)):
