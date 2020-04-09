@@ -9,12 +9,12 @@ class HanoiTowerProblem(SearchProblem):
             self.grid[t_from].append(i)
 
     def getStartState(self):
-        return (self.grid, 0, [self.grid])
+        return (self.grid, 0, [self.grid]) # returns the initial state of the problem
 
     def getGoalState(self, state):
-        return state[0][self.to] == [i for i in range(self.disks)]
+        return state[0][self.to] == [i for i in range(self.disks)] # returns whether the given state is the goal state or not
 
-    def getSuccessors(self, state):
+    def getSuccessors(self, state): # returns all the possible outcomes of the current state
         moves = []
         grid, pathCost, path = state
 
@@ -39,9 +39,9 @@ class HanoiTowerProblem(SearchProblem):
                             getMove(j, i)
         return moves
 
-    def hammingCost(self, state):
+    def hammingCost(self, state): # returns the number of positions not in order
         return self.disks - len(state[0][self.to])
 
-    def manhattanCost(self, state):
+    def manhattanCost(self, state): # returns the total number of moves required to reach the goal state
         #len(grid[0]) * abs(self.to - 0) + len(grid[1]) * abs(self.to - 0) + len()
         return sum(len(state[0][i]) * abs(self.to - i) for i in range(len(state[0]))) + 1
