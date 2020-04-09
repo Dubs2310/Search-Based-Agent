@@ -5,12 +5,12 @@ class FarmerPuzzleProblem(SearchProblem):
         self.grid = [farmer, wolf, sheep, cabbage]
 
     def getStartState(self):
-        return (self.grid, 0, [self.grid])
+        return (self.grid, 0, [self.grid]) # returns the initial state of the problem
 
-    def getGoalState(self, state):
+    def getGoalState(self, state): # checks whether the given state is the goal state or not
         return state[0] == [0, 0, 0, 0]
 
-    def getSuccessors(self, state):
+    def getSuccessors(self, state): # returns all the possible outcomes of the current state
         moves = []
         grid, pathCost, path = state
 
@@ -30,14 +30,14 @@ class FarmerPuzzleProblem(SearchProblem):
 
         return moves
 
-    def hammingCost(self, grid):
+    def hammingCost(self, grid): # returns the number ofpositions not in order 
         distance = 0;
         for i in range(len(grid[0])):
             if grid[0][i]!=0:
                 distance+=1
         return distance
 
-    def manhattanCost(self, grid):
+    def manhattanCost(self, grid): # returns the total steps required for the goal state
         distance = 0;
         for i in range(len(grid[0])):
             if grid[0][i]!=0:
