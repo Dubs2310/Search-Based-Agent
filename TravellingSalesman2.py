@@ -8,11 +8,11 @@ class TravellingSalesman2(SearchProblem):
         return 0, [0]
 
     def getGoalState(self, state):
-        return len(state[1]) == len(self.grid) + 1 and state[1][0] == state[1][-1]
+        return len(state[1]) == len(self.grid) + 1 and state[1][0] == state[1][-1] # returns the initial state of the problem
 
-    def getSuccessors(self, state):
+    def getSuccessors(self, state): # returns all the possible outcomes of the current state
         moves = []
-        dist, path = state
+        dist, path = state 
 
         def getMove(dist_grid):
             pathCopy = list(path)
