@@ -17,12 +17,12 @@ class PacmanProblem(SearchProblem):
     # where the first tuple is the current position of pacman
     # and the list stores the path taken to reach here
     def getStartState(self):
-        return self.pacman, 0, [self.pacman]
+        return self.pacman, 0, [self.pacman] 
 
     def getGoalState(self, state):
-        return state[0] == self.food
+        return state[0] == self.food # checks whether the given state is the goal state or not
 
-    def getSuccessors(self, state):
+    def getSuccessors(self, state): # gets all the possible outcomes of the current state
         moves = []
         pathCost = state[1]
         path = state[2]
@@ -44,8 +44,8 @@ class PacmanProblem(SearchProblem):
             getMove(state[0][0] + 1, state[0][1])
         return moves
 
-    def manhattanCost(self, grid):
-        return abs(grid[0][0]-self.food[0])+abs(grid[0][1]-self.food[1])
+    def manhattanCost(self, grid): # manhattan distance: sum of vertical distance from food + sun of horzontal distance from food
+        return abs(grid[0][0]-self.food[0])+abs(grid[0][1]-self.food[1]) 
 
-    def hammingCost(self, grid):
+    def hammingCost(self, grid): # number of positions in the current coordinate which is different from the goal coordinate
         return 0 if grid[0][0]==self.food[0] and grid[0][1]==self.food[1] else 2 if grid[0][0]!=self.food[0] and grid[0][1]!=self.food[1] else 1
