@@ -8,10 +8,8 @@ class PacmanProblem(SearchProblem):
         self.rows = len(grid)
         self.columns = len(grid[0])
         self.pacman = pacman
-        #self.grid[pacman[0]] = self.grid[pacman[0]][:pacman[1]] + 'P' + self.grid[pacman[0]][pacman[1] + 1:]
         self.food = food
         self.goal = self.food
-        #self.grid[food[0]] = self.grid[food[0]][:food[1]] + 'F' + self.grid[food[0]][food[1] + 1:]
 
     # Since this problem requires us to output the path taken
     # to reach the food pellet, we'll store the path in the state
@@ -20,22 +18,22 @@ class PacmanProblem(SearchProblem):
     # where the first tuple is the current position of pacman
     # and the list stores the path taken to reach here
     def getStartState(self):
-        return self.pacman, [self.pacman]
+        return self.pacman, 0, [self.pacman]
 
     def getGoalState(self, state):
         return state[0] == self.food
 
     def getSuccessors(self, state):
         moves = []
-        path = state[1]
+        pathCost = state[1]
+        path = state[2]
 
         def getMove(r, c):
             if self.grid[r][c] != '%':
                 newPath = list(path)
                 move = (r, c)
-                #self.grid[r] = self.grid[r][:c] + '-' + self.grid[r][c + 1:]
                 newPath.append(move)
-                moves.append((move, newPath))
+                moves.append((move, pathCost + 1, newPath))
 
         if state[0][0] > 0:  # Go UP
             getMove(state[0][0] - 1, state[0][1])

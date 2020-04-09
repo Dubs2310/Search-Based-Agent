@@ -9,15 +9,15 @@ class EightPuzzleProblem(SearchProblem):
             if self.grid[i] == 0:
                 self.pos0 = i
                 break
-        self.goal = [i for i in range(len(self.grid)+1)]
+        self.goal = [i for i in range(len(self.grid) + 1)]
 
     # We'll define state to be tuple([grid], pos0, [path])
     def getStartState(self):
-        return (self.grid, self.pos0, [])
+        return (self.grid, self.pos0, 0, [self.grid])
 
     # Goal state is [1,2,3,4,5,6,7,8,0]
     def getGoalState(self, state):
-        grid, pos0, _ = state
+        grid, pos0, _, _2 = state
         for i in range(8):
             if grid[i] != i+1:
                 return False
@@ -25,21 +25,21 @@ class EightPuzzleProblem(SearchProblem):
 
     def getSuccessors(self, state):
         moves = []
-        grid, pos0, path = state
+        grid, pos0, pathCost, path = state
 
-        def generateMove(incr, action):
+        def generateMove(incr):
             pathCopy = list(path)
-            pathCopy.append(action)
             gridCopy = list(grid)
             gridCopy[pos0], gridCopy[pos0 + incr] = gridCopy[pos0 + incr], gridCopy[pos0]
-            moves.append((gridCopy, pos0 + incr, pathCopy))
+            pathCopy.append(gridCopy)
+            moves.append((gridCopy, pos0 + incr, pathCost + 1, pathCopy))
 
         if pos0 >= 3: # Slide empty block UP
-            generateMove(-3, 'U')
+            generateMove(-3)
         if pos0 <= 5: # Slide empty block DOWN
-            generateMove(3, 'D')
+            generateMove(3)
         if (pos0 % 3) > 0: # Slide empty block LEFT
-            generateMove(-1, 'L')
+            generateMove(-1)
         if (pos0 % 3) < 2: # Slide empty block RIGHT
-            generateMove(1, 'R')
+            generateMove(1)
         return moves
