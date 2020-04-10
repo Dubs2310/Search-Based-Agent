@@ -1,5 +1,4 @@
-# Search Based Agent 
-
+The agent consist of the following files:
 - [AI_search.py](AI_search.py): Contains 
   - Search algorithms such as:
     - Tree Search
