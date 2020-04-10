@@ -27,3 +27,6 @@
   - Travelling Salesman 2 (TravellingSalesman2.py)
   - Tavelling Salesman (TravellingSalesmanProblem.py)
 - main.py: Solves all the available problems using all the available algorithms
+
+#### All rights reserved to Abdullah Siddiqui, Angie Guirguis and Asif Rasheed
+#### This Project was created as a part of CMP433 (Artificial Intelligence)
