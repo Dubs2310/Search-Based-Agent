@@ -29,4 +29,4 @@ The agent consist of the following files:
 
 Your could download this repository as [zip](https://github.com/asifrasheed6/Search-Based-Agent/archive/master.zip)
 
-Please note that by downloading any content from this repository, you have agreed to the terms and conditions specified by the [software license]()
+Please note that by downloading any content from this repository, you have agreed to the terms and conditions specified by the [software license](https://raw.githubusercontent.com/asifrasheed6/Search-Based-Agent/master/LICENSE)
