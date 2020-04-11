@@ -27,7 +27,6 @@ The agent consist of the following files:
   - Tavelling Salesman ([TravellingSalesmanProblem.py](TravellingSalesmanProblem.py))
 - [main.py](main.py): Solves all the available problems using all the available algorithms
 
-<button><a href='https://github.com/asifrasheed6/Search-Based-Agent/archive/master.zip'>Download This Repository</a></button>
-<p>
-This Project was created as a part of CMP433 (Artificial Intelligence). All rights reserved to Abdullah Siddiqui, Angie Guirguis and Asif Rasheed.
-</p>
+Your could download this repository as [zip](https://github.com/asifrasheed6/Search-Based-Agent/archive/master.zip)
+
+Please note that by downloading any content from this repository, you have agreed to the terms and conditions specified by the [software license]()
